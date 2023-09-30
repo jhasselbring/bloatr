@@ -40,12 +40,8 @@ fs.mkdirSync(tmpDir, {
     recursive: true
 });
 
-let count = 10;
-
 while (1) {
-    count--;
     bloater();
-    console.log(count);
 }
 
 
