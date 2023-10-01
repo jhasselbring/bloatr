@@ -1,5 +1,9 @@
 const fs = require("fs")
 const randomstring = require("randomstring");
+const arguments = process.argv.slice(2);
+console.log(arguments);
+
+const bloatSize = arguments[0] ? arguments[0]*1000 : 50000000;
 
 let cwd = process.cwd();
 let tmpDir = '';
@@ -14,16 +18,16 @@ const bloater = () => {
         charset: 'alphabetic'
     });
     let bloat = randomstring.generate({
-        length: 50000,
+        length: bloatSize,
         charset: 'alphabetic'
     });
-
+    console.log(bloatName);
     fs.writeFileSync(tmpDir + '\\' + bloatName, bloat, err => {
         if (err) {
             console.error(err)
             return
         }
-        //file written successfully
+        
     })
 }
 
